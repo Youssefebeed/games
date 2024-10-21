@@ -29,6 +29,15 @@
             text-decoration: none;
             font-size: 18px; /* تكبير خط القائمة */
         }
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-container input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
         .game-list {
             max-width: 1200px;
             margin: 0 auto;
@@ -59,6 +68,16 @@
             padding-left: 20px;
         }
     </style>
+    <script>
+        function searchGames() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const games = document.querySelectorAll('.game');
+            games.forEach(game => {
+                const title = game.querySelector('h3').textContent.toLowerCase();
+                game.style.display = title.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
 </head>
 <body>
 
@@ -73,11 +92,15 @@
     <a href="#">اتصل بنا</a>
 </nav>
 
+<div class="search-container">
+    <input type="text" id="search-input" onkeyup="searchGames()" placeholder="ابحث عن لعبة...">
+</div>
+
 <section class="game-list">
-    <!-- دمج الألعاب في فقرة واحدة -->
+    <!-- قائمة الألعاب -->
     <div class="game">
         <h3>The Witcher 3: Wild Hunt</h3>
-        <img src="C:\Users\ORIGINAL\Desktop\New folder\The Witcher 3 Wild Hunt." alt="The Witcher 3: Wild Hunt">
+        <img src="thewitcher3.jpg" alt="The Witcher 3: Wild Hunt">
         <p><strong>الوصف:</strong> لعبة تقمص أدوار في عالم مفتوح، تروي قصة الصياد Geralt of Rivia.</p>
         <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
         <ul>
@@ -87,7 +110,9 @@
             <li>كرت الشاشة: NVIDIA GTX 660 / AMD Radeon HD 7870</li>
             <li>المساحة التخزينية: 35 GB</li>
         </ul>
+    </div>
 
+    <div class="game">
         <h3>Red Dead Redemption 2</h3>
         <img src="rdr2.jpg" alt="Red Dead Redemption 2">
         <p><strong>الوصف:</strong> لعبة عالم مفتوح في الغرب الأمريكي تروي قصة العصابة Arthur Morgan.</p>
@@ -98,7 +123,9 @@
             <li>الذاكرة: 8 GB RAM</li>
             <li>كرت الشاشة: Nvidia GTX 770 / AMD Radeon R9 280</li>
         </ul>
+    </div>
 
+    <div class="game">
         <h3>Cyberpunk 2077</h3>
         <img src="cyberpunk2077.jpg" alt="Cyberpunk 2077">
         <p><strong>الوصف:</strong> لعبة عالم مفتوح تدور في مدينة Night City، تقدم قصة اللاعب "V" الذي يحاول الوصول للخلود الرقمي.</p>
@@ -110,6 +137,9 @@
             <li>كرت الشاشة: GTX 780 / Radeon RX 470</li>
             <li>المساحة التخزينية: 70 GB</li>
         </ul>
+    </div>
+
+    <div class="game">
         <h3>Grand Theft Auto V</h3>
         <img src="gta5.jpg" alt="Grand Theft Auto V">
         <p><strong>الوصف:</strong> لعبة عالم مفتوح تتبع قصة 3 شخصيات رئيسية في مدينة Los Santos والمحيط.</p>
@@ -121,6 +151,9 @@
             <li>كرت الشاشة: NVIDIA GTX 660 / AMD HD 7870</li>
             <li>المساحة التخزينية: 65 GB</li>
         </ul>
+    </div>
+
+    <div class="game">
         <h3>Assassin's Creed Valhalla</h3>
         <img src="assassinscreed.jpg" alt="Assassin's Creed Valhalla">
         <p><strong>الوصف:</strong> لعبة تقمص أدوار في عصر الفايكينغ، تروي قصة المحارب Eivor في رحلته لغزو إنجلترا.</p>
@@ -133,8 +166,264 @@
             <li>المساحة التخزينية: 50 GB</li>
         </ul>
     </div>
+
+    <div class="game">
+        <h3>The Last of Us Part II</h3>
+        <img src="lastofus2.jpg" alt="The Last of Us Part II">
+        <p><strong>الوصف:</strong> لعبة مغامرات تركز على البقاء في عالم بعد الكارثة حيث يجب على إيلي أن تواجه العديد من التحديات.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: PlayStation 4</li>
+            <li>المعالج: AMD Jaguar 8-core</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>المساحة التخزينية: 100 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Horizon Zero Dawn</h3>
+        <img src="horizonzerodawn.jpg" alt="Horizon Zero Dawn">
+        <p><strong>الوصف:</strong> لعبة أكشن في عالم مفتوح تركز على محاربة الآلات الضخمة واكتشاف أسرار العالم القديم.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i5-2500K / AMD FX 6300</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GTX 780 / AMD R9 290</li>
+            <li>المساحة التخزينية: 100 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Resident Evil Village</h3>
+        <img src="residentevilvillage.jpg" alt="Resident Evil Village">
+        <p><strong>الوصف:</strong> لعبة رعب وبقاء تروي قصة إيثان وينترز وهو يحاول العثور على ابنته في قرية غامضة مليئة بالوحوش.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i5-7500 / AMD Ryzen 3 1200</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GTX 1050 Ti / AMD RX 560</li>
+            <li>المساحة التخزينية: 45 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Doom Eternal</h3>
+        <img src="doometernal.jpg" alt="Doom Eternal">
+        <p><strong>الوصف:</strong> لعبة أكشن سريعة حيث يجب على اللاعب أن يقاتل جحافل من الشياطين باستخدام مجموعة متنوعة من الأسلحة.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i5-2500K / AMD Ryzen 5 1400</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GTX 970 / AMD RX 290</li>
+            <li>المساحة التخزينية: 50 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>FIFA 23</h3>
+        <img src="fifa23.jpg" alt="FIFA 23">
+        <p><strong>الوصف:</strong> لعبة كرة القدم الشهيرة التي تقدم أحدث الفرق واللاعبين والملاعب من مختلف الدوريات العالمية.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i3-6100 / AMD Athlon X4 880K</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GTX 660 / AMD Radeon R7 260</li>
+            <li>المساحة التخزينية: 50 GB</li>
+        </ul>
+    </div>
+
+    <!-- الألعاب الإضافية -->
+    <div class="game">
+        <h3>God of War</h3>
+        <img src="godofwar.jpg" alt="God of War">
+        <p><strong>الوصف:</strong> لعبة أكشن مغامرات تتبع Kratos ونجله Atreus في رحلة عبر عوالم النور والظلام.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i5-2500K / AMD Ryzen 5 1600</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GTX 970 / AMD R9 290</li>
+            <li>المساحة التخزينية: 75 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Final Fantasy XV</h3>
+        <img src="finalfantasy15.jpg" alt="Final Fantasy XV">
+        <p><strong>الوصف:</strong> لعبة تقمص أدوار تروي قصة Noctis وصحبه في رحلة عبر مملكة Lucis.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i5-2500 / AMD FX-6300</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce GTX 760 / AMD Radeon R9 280</li>
+            <li>المساحة التخزينية: 100 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Battlefield V</h3>
+        <img src="battlefieldv.jpg" alt="Battlefield V">
+        <p><strong>الوصف:</strong> لعبة تصويب من منظور الشخص الأول تدور أحداثها في الحرب العالمية الثانية.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7/8/10</li>
+            <li>المعالج: Intel Core i5 6600K / AMD FX-6350</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce GTX 660 / AMD Radeon HD 7850</li>
+            <li>المساحة التخزينية: 50 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Overwatch</h3>
+        <img src="overwatch.jpg" alt="Overwatch">
+        <p><strong>الوصف:</strong> لعبة تصويب من منظور الشخص الأول تركز على التعاون بين اللاعبين في فرق لتحقيق الأهداف.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7 / Windows 8 / Windows 10</li>
+            <li>المعالج: Intel Core i3 أو AMD Phenom X3 8650</li>
+            <li>الذاكرة: 6 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 6850</li>
+            <li>المساحة التخزينية: 30 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Minecraft</h3>
+        <img src="minecraft.jpg" alt="Minecraft">
+        <p><strong>الوصف:</strong> لعبة بناء ومغامرات في عالم مفتوح حيث يمكن للاعبين إنشاء هياكل واستكشاف العوالم.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i3-3210 / AMD A8-8400</li>
+            <li>الذاكرة: 4 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce 400 Series أو AMD Radeon HD 7000</li>
+            <li>المساحة التخزينية: 4 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Among Us</h3>
+        <img src="amongus.jpg" alt="Among Us">
+        <p><strong>الوصف:</strong> لعبة متعددة اللاعبين حيث يتعين على اللاعبين اكتشاف المحتالين بين أفراد الطاقم.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7 أو أحدث</li>
+            <li>المعالج: 2.0 GHz</li>
+            <li>الذاكرة: 1 GB RAM</li>
+            <li>كرت الشاشة: OpenGL 2.0 أو أعلى</li>
+            <li>المساحة التخزينية: 250 MB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Valorant</h3>
+        <img src="valorant.jpg" alt="Valorant">
+        <p><strong>الوصف:</strong> لعبة تصويب من منظور الشخص الأول تتميز بأسلوب لعب تكتيكي وفرق.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7/8/10</li>
+            <li>المعالج: Intel Core 2 Duo E8400</li>
+            <li>الذاكرة: 4 GB RAM</li>
+            <li>كرت الشاشة: Intel HD 3000</li>
+            <li>المساحة التخزينية: 7 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>League of Legends</h3>
+        <img src="leagueoflegends.jpg" alt="League of Legends">
+        <p><strong>الوصف:</strong> لعبة استراتيجية متعددة اللاعبين، حيث يتقاتل لاعبان أو أكثر للفوز بالمباراة.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7 و 8 و 10</li>
+            <li>المعالج: 2 GHz من معالج ثنائي النواة</li>
+            <li>الذاكرة: 2 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce 8600/ATI Radeon HD 2600/Intel HD 3000</li>
+            <li>المساحة التخزينية: 12 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Call of Duty: Warzone</h3>
+        <img src="warzone.jpg" alt="Call of Duty: Warzone">
+        <p><strong>الوصف:</strong> لعبة باتل رويال تضم مجموعة كبيرة من اللاعبين في ساحة معركة ضخمة.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i3-4340 / AMD FX-6300</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce GTX 670 / AMD Radeon HD 7950</li>
+            <li>المساحة التخزينية: 175 GB</li>
+        </ul>
+    </div>
+
+    <div class="game">
+        <h3>Assassin's Creed Odyssey</h3>
+        <img src="assassinscreedodyssey.jpg" alt="Assassin's Creed Odyssey">
+        <p><strong>الوصف:</strong> لعبة تقمص أدوار تتبع مغامرات كاساندرا أو أليكسيوس في اليونان القديمة.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 10</li>
+            <li>المعالج: Intel Core i5-2400 / AMD FX-6300</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GeForce GTX 660 / AMD Radeon R9 285</li>
+            <li>المساحة التخزينية: 46 GB</li>
+        </ul>
+    </div>
 </section>
+
+
+
+<script>
+    const searchButton = document.getElementById('search-button');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+
+    const games = [
+        'The Witcher 3: Wild Hunt',
+        'Red Dead Redemption 2',
+        'Cyberpunk 2077',
+        'Grand Theft Auto V',
+        'Assassin\'s Creed Valhalla',
+        'The Last of Us Part II',
+        'Horizon Zero Dawn',
+        'Resident Evil Village',
+        'Doom Eternal',
+        'FIFA 23',
+        'God of War',
+        'Final Fantasy XV',
+        'Battlefield V',
+        'Overwatch',
+        'Minecraft',
+        'Among Us',
+        'Valorant',
+        'League of Legends',
+        'Call of Duty: Warzone',
+        'Assassin\'s Creed Odyssey'
+    ];
+
+    searchButton.onclick = () => {
+        const query = searchInput.value.toLowerCase();
+        searchResults.innerHTML = '';
+
+        const results = games.filter(game => game.toLowerCase().includes(query));
+        if (results.length > 0) {
+            results.forEach(game => {
+                const div = document.createElement('div');
+                div.textContent = game;
+                searchResults.appendChild(div);
+            });
+        } else {
+            searchResults.textContent = 'لا توجد نتائج.';
+        }
+    };
+</script>
 
 </body>
 </html>
-
