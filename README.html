@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موسوعة الألعاب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            direction: rtl; /* من اليمين لليسار */
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #555;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px; /* تكبير خط القائمة */
+        }
+        .game-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .game {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            font-size: 18px; /* تكبير حجم الخط داخل الألعاب */
+        }
+        .game img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .game h3 {
+            margin: 15px 0;
+            font-size: 28px; /* تكبير خط العنوان */
+        }
+        .game p, .game ul {
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        #search-bar {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 10px;
+            text-align: center;
+        }
+        #search-bar input {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            border: 2px solid #555;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>موسوعة الألعاب</h1>
+</header>
+
+<nav>
+    <a href="#">الرئيسية</a>
+    <a href="#">الألعاب</a>
+    <a href="#">بحث</a>
+    <a href="#">اتصل بنا</a>
+</nav>
+
+<!-- شريط البحث -->
+<section id="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن لعبة..." onkeyup="searchGame()">
+</section>
+
+<section class="game-list" id="gameList">
+    <!-- دمج الألعاب في فقرة واحدة -->
+    <div class="game" data-name="The Witcher 3">
+        <h3>The Witcher 3: Wild Hunt</h3>
+        <img src="thewitcher3.jpg" alt="The Witcher 3: Wild Hunt">
+        <p><strong>الوصف:</strong> لعبة تقمص أدوار في عالم مفتوح، تروي قصة الصياد Geralt of Rivia.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: 64-bit Windows 7 أو أحدث</li>
+            <li>المعالج: Intel Core i5-2500K / AMD Phenom II X4 940</li>
+            <li>الذاكرة: 6 GB RAM</li>
+            <li>كرت الشاشة: NVIDIA GTX 660 / AMD Radeon HD 7870</li>
+            <li>المساحة التخزينية: 35 GB</li>
+        </ul>
+    </div>
+
+    <div class="game" data-name="Red Dead Redemption 2">
+        <h3>Red Dead Redemption 2</h3>
+        <img src="rdr2.jpg" alt="Red Dead Redemption 2">
+        <p><strong>الوصف:</strong> لعبة عالم مفتوح في الغرب الأمريكي تروي قصة العصابة Arthur Morgan.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7 - Service Pack 1</li>
+            <li>المعالج: Intel Core i5-2500K / AMD FX-6300</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: Nvidia GTX 770 / AMD Radeon R9 280</li>
+        </ul>
+    </div>
+
+    <div class="game" data-name="Cyberpunk 2077">
+        <h3>Cyberpunk 2077</h3>
+        <img src="cyberpunk2077.jpg" alt="Cyberpunk 2077">
+        <p><strong>الوصف:</strong> لعبة عالم مفتوح تدور في مدينة Night City، تقدم قصة اللاعب "V" الذي يحاول الوصول للخلود الرقمي.</p>
+        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
+        <ul>
+            <li>نظام التشغيل: Windows 7 أو Windows 10</li>
+            <li>المعالج: Intel Core i5-3570K / AMD FX-8310</li>
+            <li>الذاكرة: 8 GB RAM</li>
+            <li>كرت الشاشة: GTX 780 / Radeon RX 470</li>
+            <li>المساحة التخزينية: 70 GB</li>
+        </ul>
+    </div>
+
+    <!-- أضف المزيد من الألعاب هنا -->
+</section>
+
+<script>
+    function searchGame() {
+        var input, filter, games, title, i;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        games = document.getElementsByClassName('game');
+
+        for (i = 0; i < games.length; i++) {
+            title = games[i].getElementsByTagName("h3")[0];
+            if (title.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                games[i].style.display = "";
+            } else {
+                games[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
