@@ -58,6 +58,19 @@
         ul {
             padding-left: 20px;
         }
+        #search-bar {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 10px;
+            text-align: center;
+        }
+        #search-bar input {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            border: 2px solid #555;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -73,11 +86,16 @@
     <a href="#">اتصل بنا</a>
 </nav>
 
-<section class="game-list">
+<!-- شريط البحث -->
+<section id="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن لعبة..." onkeyup="searchGame()">
+</section>
+
+<section class="game-list" id="gameList">
     <!-- دمج الألعاب في فقرة واحدة -->
-    <div class="game">
+    <div class="game" data-name="The Witcher 3">
         <h3>The Witcher 3: Wild Hunt</h3>
-        <img src="C:\Users\ORIGINAL\Desktop\New folder\The Witcher 3 Wild Hunt." alt="The Witcher 3: Wild Hunt">
+        <img src="thewitcher3.jpg" alt="The Witcher 3: Wild Hunt">
         <p><strong>الوصف:</strong> لعبة تقمص أدوار في عالم مفتوح، تروي قصة الصياد Geralt of Rivia.</p>
         <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
         <ul>
@@ -87,7 +105,9 @@
             <li>كرت الشاشة: NVIDIA GTX 660 / AMD Radeon HD 7870</li>
             <li>المساحة التخزينية: 35 GB</li>
         </ul>
+    </div>
 
+    <div class="game" data-name="Red Dead Redemption 2">
         <h3>Red Dead Redemption 2</h3>
         <img src="rdr2.jpg" alt="Red Dead Redemption 2">
         <p><strong>الوصف:</strong> لعبة عالم مفتوح في الغرب الأمريكي تروي قصة العصابة Arthur Morgan.</p>
@@ -98,7 +118,9 @@
             <li>الذاكرة: 8 GB RAM</li>
             <li>كرت الشاشة: Nvidia GTX 770 / AMD Radeon R9 280</li>
         </ul>
+    </div>
 
+    <div class="game" data-name="Cyberpunk 2077">
         <h3>Cyberpunk 2077</h3>
         <img src="cyberpunk2077.jpg" alt="Cyberpunk 2077">
         <p><strong>الوصف:</strong> لعبة عالم مفتوح تدور في مدينة Night City، تقدم قصة اللاعب "V" الذي يحاول الوصول للخلود الرقمي.</p>
@@ -110,30 +132,28 @@
             <li>كرت الشاشة: GTX 780 / Radeon RX 470</li>
             <li>المساحة التخزينية: 70 GB</li>
         </ul>
-        <h3>Grand Theft Auto V</h3>
-        <img src="gta5.jpg" alt="Grand Theft Auto V">
-        <p><strong>الوصف:</strong> لعبة عالم مفتوح تتبع قصة 3 شخصيات رئيسية في مدينة Los Santos والمحيط.</p>
-        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
-        <ul>
-            <li>نظام التشغيل: Windows 7</li>
-            <li>المعالج: Intel Core 2 Quad CPU Q6600 / AMD Phenom 9850</li>
-            <li>الذاكرة: 4 GB RAM</li>
-            <li>كرت الشاشة: NVIDIA GTX 660 / AMD HD 7870</li>
-            <li>المساحة التخزينية: 65 GB</li>
-        </ul>
-        <h3>Assassin's Creed Valhalla</h3>
-        <img src="assassinscreed.jpg" alt="Assassin's Creed Valhalla">
-        <p><strong>الوصف:</strong> لعبة تقمص أدوار في عصر الفايكينغ، تروي قصة المحارب Eivor في رحلته لغزو إنجلترا.</p>
-        <p><strong>متطلبات التشغيل (الحد الأدنى):</strong></p>
-        <ul>
-            <li>نظام التشغيل: Windows 10</li>
-            <li>المعالج: Intel i5-4460 / AMD Ryzen 3 1200</li>
-            <li>الذاكرة: 8 GB RAM</li>
-            <li>كرت الشاشة: NVIDIA GTX 960 / AMD R9 380</li>
-            <li>المساحة التخزينية: 50 GB</li>
-        </ul>
     </div>
+
+    <!-- أضف المزيد من الألعاب هنا -->
 </section>
+
+<script>
+    function searchGame() {
+        var input, filter, games, title, i;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        games = document.getElementsByClassName('game');
+
+        for (i = 0; i < games.length; i++) {
+            title = games[i].getElementsByTagName("h3")[0];
+            if (title.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                games[i].style.display = "";
+            } else {
+                games[i].style.display = "none";
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
